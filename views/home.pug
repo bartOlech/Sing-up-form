@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel='stylesheet' href='style.css')
+    body
+        div.main-session
+            div.horizontal-line
+                h2.tittle-session Join now
+            form(action="/form", method='POST')
+                label(for='name') Name:
+                input(type="text" name='name' value=validated ? validated.name:'')
+                if (errors && errors.name)
+                    p.lightbox__error #{ errors.name.msg }
+                label(for='email') Email:
+                input(type="text" name='email' value=validated ? validated.email:'')
+                if(errors && errors.email)
+                    p.lightbox__error #{errors.email.msg}
+                label(for='phone') Phone:
+                input(type="text" name='phone' value=validated ? validated.phone:'')
+                if(errors && errors.phone)
+                    p.lightbox__error #{errors.phone.msg}
+                button.send-form-btn Sing up
+                if(message.length)
+                    div.message-session 
+                        h3.correct-sing-up Thank you  
+                        h3(class='correct-sing-up name-msg') &nbsp; #{message} &nbsp;
+                        h3.correct-sing-up for registration
+
